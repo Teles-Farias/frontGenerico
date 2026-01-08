@@ -1,0 +1,96 @@
+.page-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  margin-bottom: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.data-container {
+  margin-top: 32px;
+}
+
+.file-info {
+  padding: 12px 16px;
+  background-color: #e7f3ff;
+  border-left: 4px solid #007bff;
+  border-radius: 4px;
+  margin-bottom: 24px;
+
+  p {
+    margin: 0;
+    color: #004085;
+    font-size: 14px;
+  }
+}
+
+.export-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+  flex-wrap: wrap;
+
+  .btn-export {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    &.btn-csv {
+      background-color: #28a745;
+
+      &:hover {
+        background-color: #218838;
+      }
+    }
+
+    &.btn-json {
+      background-color: #ffc107;
+      color: #333;
+
+      &:hover {
+        background-color: #e0a800;
+      }
+    }
+
+    &.btn-reset {
+      background-color: #6c757d;
+
+      &:hover {
+        background-color: #5a6268;
+      }
+    }
+  }
+}
+
+.preview {
+  margin-top: 32px;
+  padding: 16px;
+  background-color: #f5f7fa;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+
+  pre {
+    max-height: 300px;
+    overflow: auto;
+    background: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+}
