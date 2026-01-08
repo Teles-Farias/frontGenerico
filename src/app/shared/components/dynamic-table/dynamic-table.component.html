@@ -1,0 +1,41 @@
+<div class="table-container">
+  <table *ngIf="data?.length">
+    <thead>
+      <tr>
+        <th *ngFor="let col of columns">{{ col }}</th>
+        <th class="actions-header">Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let row of data; let i = index">
+        <ng-container *ngIf="editingRowIndex === i">
+          <td *ngFor="let col of columns">
+            <input 
+              type="text" 
+              [(ngModel)]="editingData[col]"
+              class="edit-input"
+            />
+          </td>
+          <td class="actions-cell">
+            <button (click)="saveEditingRow(i)" class="btn-save">Salvar</button>
+            <button (click)="cancelEditingRow()" class="btn-cancel">Cancelar</button>
+          </td>
+        </ng-container>
+
+        <ng-container *ngIf="editingRowIndex !== i">
+          <td *ngFor="let col of columns">{{ row[col] }}</td>
+          <td class="actions-cell">
+            <button (click)="startEditingRow(i)" class="btn-edit">Editar</button>
+            <button (click)="deleteRow(i)" class="btn-delete">Deletar</button>
+          </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="table-actions" *ngIf="data?.length">
+    <button (click)="addNewRow()" class="btn-add">+ Adicionar Linha</button>
+  </div>
+</div>
+

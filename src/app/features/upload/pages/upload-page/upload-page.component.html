@@ -1,0 +1,23 @@
+<div class="page-container">
+  <h1>Portal Dinâmico de Dados 🚀</h1>
+
+  <app-file-upload (fileLoaded)="onFileLoaded($event)"></app-file-upload>
+
+  <div *ngIf="parsedData?.length" class="data-container">
+    <div class="file-info" *ngIf="fileType">
+      <p><strong>Tipo de arquivo:</strong> {{ fileType?.toUpperCase() }}</p>
+    </div>
+
+    <app-dynamic-table
+      [data]="parsedData"
+      (dataChanged)="onDataChanged($event)">
+    </app-dynamic-table>
+
+    <div class="export-actions">
+      <button (click)="exportAsCSV()" class="btn-export btn-csv">📥 Exportar CSV</button>
+      <button (click)="exportAsJSON()" class="btn-export btn-json">📥 Exportar JSON</button>
+      <button (click)="resetData()" class="btn-export btn-reset">🔄 Resetar</button>
+    </div>
+  </div>
+</div>
+
